@@ -67,7 +67,7 @@ if standard == "v1" {
 
 fn v1_standard(standard, org_context, context) {
     // group-id: p6m.customer.loyalty / group_id: p6m.customer.loyalty
-    context += set("group-id", org_context["org-venture-name"], #{
+    context += set("group-id", org_context["org-solution-name"], #{
         cases: [
             FixedIdentityCasedValue(PackageCase),
             FixedKeyCasedValue("group_id", PackageCase),
@@ -84,15 +84,15 @@ fn v1_standard(standard, org_context, context) {
 
 fn v2_standard(standard, org_context, context) {
     // p6m.p6m_loyalty
-    context += set("group_id", render("{{ org_name }}.{{ venture_name }}", org_context));
+    context += set("group_id", render("{{ org_name }}.{{ solution_name }}", org_context));
     // p6m.p6m-loyalty
-    context += set("group-id", render("{{ org-name }}.{{ venture-name }}", org_context));
+    context += set("group-id", render("{{ org-name }}.{{ solution-name }}", org_context));
 
     // root_package: p6m.p6m_loyalty.cart_service
-    context += set("root_package", render("{{ org_name }}.{{ venture_name }}.{{ artifact_id }}", org_context + context));
+    context += set("root_package", render("{{ org_name }}.{{ solution_name }}.{{ artifact_id }}", org_context + context));
 
     // root_directory: p6m/p6m_loyalty/cart_service
-    context += set("root_directory", render("{{ org_name }}/{{ venture_name }}/{{ artifact_id }}", org_context + context));
+    context += set("root_directory", render("{{ org_name }}/{{ solution_name }}/{{ artifact_id }}", org_context + context));
     context
 }
 

@@ -6,7 +6,7 @@ frameworks: []
 tags: []
 
 requires:
-  archetect: "2.0.0-ALPHA.15"
+  archetect: "2.0.0"
 
 components:
-  org-prompts: git@github.com:p6m-archetypes/org-prompts.archetype.git
+  org-prompts: https://github.com/p6m-archetypes/org-prompts.archetype.git
